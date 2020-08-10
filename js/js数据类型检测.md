@@ -34,9 +34,9 @@ typeof 在判断 null 的时候就出现问题了，由于 null 的所有机器�
 
 注意：
 
-1，由于我们可以肆意的修改原型的指向，所以检测出来的结果是不准的
+- 1，由于我们可以肆意的修改原型的指向，所以检测出来的结果是不准的
 
-2，不能检测基本类型
+- 2，不能检测基本类型
 
 原理：检测当前类是否在实例的原型链上
 ```
@@ -58,6 +58,7 @@ console.log(num instanceof Number)   //false
 ```
 ## constructor
 constructor可以随便改，所以也不准
+
 ```
 [].constructor===Array
 Symbol().constructor===Symbol   //true
@@ -68,5 +69,34 @@ let num=1
 num.constructor===Number  //true
 ...
 
+实际上 其本身上没有constructor属性，就到其原型上的查找（如数组arr=[],arr.__proto__.consctructor===Array）
+
 ```
 ## Object.prototype.toString
+
+这是一个万能的检测类型的方法，可以检测任意类型的值，返回当前实例所属类的信息
+```
+跟着jquery学类型检测
+function toType(obj){
+    let class2type={}
+    //实际上这里的toString就是Object.prototype.toString
+    let toString=class2type.toString
+    //---建立数据类型映射---
+    ["Boolean", "Number", "String", "Function", "Array", "Date", "RegExp", "Object", "Error", "Symbol"].forEach((type)=>{
+        class2type[`object ${type}`]=type.toLowerCase();
+    })
+    //1，如果是undefined或者null，直接返回其相应的字符串
+    if(obj==null){
+        return obj+""
+    }
+    //2,如果是复杂类型用toString
+    if(typeof obj==='object'||typeof obj==="function"){
+        return class2type[toString.call(obj)]
+    }else {//简单类型，还用typeof
+        return typeof obj
+    }
+}
+
+
+
+```
