@@ -9,5 +9,12 @@
 4. 箭头函数中没有自己的this，this都是上下文中的的
 5. 基于call，apply，bind中的this是改变后指定的this
 
-##  规范层中的this
+##  从规范层的确定this
+知识铺垫：
++ Reference：
+Reference类型就是解析诸如delete，typeof以及赋值等操作行为
++ GetValue
+调用GetValue返回的将是具体的值，而不再是一个Reference
+
+如何确定this：
 
