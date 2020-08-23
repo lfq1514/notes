@@ -38,10 +38,10 @@ typeof 在判断 null 的时候就出现问题了，由于 null 的所有机器�
 
 - 2，不能检测基本类型
 
-原理：检测当前类是否在实例的原型链上
+原理：检测构造函数的 prototype 属性是否出现在某个实例对象的原型链
 ```
 let arr = []
-console.log(arr instanceof Array); //true
+console.log(arr instanceof Array); //true（检测Array的prototype是否在arr的原型链上 ）
 console.log(arr instanceof RegExp); //false
 console.log(arr instanceof Object); //true
 

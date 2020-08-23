@@ -6,11 +6,11 @@ class Subject {
         this.name = name
         this.height = height
     }
-    //接收所有的观察者
+    //接收所有的观察者（订阅）
     attach(ob) {
         this.observes.push(ob)
     }
-    //自身状态更改，通知观察者
+    //自身状态更改，通知观察者（发布）
     setState(newHeight) {
         this.observes.forEach((o) => { o.update(this.height, newHeight) })
     }
