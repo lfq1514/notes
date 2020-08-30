@@ -8,7 +8,7 @@
     1. 原型中包含引用类型的问题,继承之后的子类,创建的多个实例,会共享原型上的引用类型的值
     2. 不能向父类构造函数传递参数
 
-```
+```JavaScript
 
 function Super(){
     this.mans=['teacher','doctor','student']
@@ -32,7 +32,7 @@ Sub.prototype=new Super()
 1. 方法在构造函数中定义,每次创建实例都会创建一遍方法
 2. 无法拿到父类原型上的方法
 
-```
+```JavaScript
 
 //父类
 function Super(){
@@ -53,7 +53,7 @@ function Sub(){
 
 - 问题 :调用了两次父类构造函数(对于下面案例,执行了两次Super),这也就是为什么又称之为"伪经典继承"的原因
 
-```
+```JavaScript
 function Super(){
     this.colors=['red','blue']
 }
@@ -75,7 +75,8 @@ let sub1=new Sub()
 
 - 就是 ES5 Object.create 的模拟实现，将传入的对象作为创建的对象的原型。
 - 缺点: 包含引用类型的属性值会共享,和原型链继承一样
-```
+
+```JavaScript
 
 function createObj(o){
     function Fn(){}
@@ -89,7 +90,7 @@ function createObj(o){
 - 创建一个仅用于封装继承过程的函数,该函数在内部以某种形式来做增强对象,最终返回对象
 - 缺点:跟借用构造函数模式一样,每次创建对象都会创建一遍方法
 
-```
+```JavaScript
 function createObj(o){
     var clone Object.create(o)
     clone.sayName=function(){
@@ -106,7 +107,7 @@ function createObj(o){
 
 1. 会覆盖Sub的protoType上定义的属性和方法
 
-```
+```JavaScript
 function Super(){
     this.colors=['red','blue']
 }
@@ -134,7 +135,7 @@ let sub1=new Sub()
 
 es6的class通过extend实现了继承
 
-```
+```JavaScript
 class Super {
     constructor(name){
         this.tip="我能实现继承"
