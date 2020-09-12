@@ -13,8 +13,20 @@
 知识铺垫：
 + Reference：
 Reference类型就是解析诸如delete，typeof以及赋值等操作行为
+Reference 的构成，由三个组成部分，分别是base value, referenced name, strict reference
+base value 就是属性所在的对象或者就是 EnvironmentRecord
+
 + GetValue
 调用GetValue返回的将是具体的值，而不再是一个Reference
 
++ IsPropertyReference(ref)
+ref的 base value 是一个对象，就返回true
+
 如何确定this：
 
+1. 计算MemberExpression的结果赋值给ref
+2. 判断ref是不是Reference类型
+
++ 如果 ref 是 Reference，并且 IsPropertyReference(ref) 是 true, 那么 this 的值为 GetBase(ref)
++ 如果 ref 是 Reference，并且 base value 值是 Environment Record, 那么this的值为 ImplicitThisValue(ref)
++ 如果 ref 不是 Reference，那么 this 的值为 undefined

@@ -144,7 +144,7 @@ class Super {
 }
 
 class Sub extends Super {
-    constructor(name.age){
+    constructor(name,age){
         super(name)
         this.age=age
     }
