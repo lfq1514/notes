@@ -5,7 +5,7 @@
  *
  */
 
-const Promise = require("../../promise/myPromise")
+const Promise = require("../promise/myPromise")
 
 //模拟生成遍历器
 function makeIterator(arr){
@@ -38,27 +38,10 @@ let i=makeIterator([1,2,3])
    yield "2"
    yield "3"
  }
- let g=gen()
+//  let g=gen()
 //  console.log(g.next())
 //  console.log(g.next())
 //  console.log(g.next())
 
 
 
-/**
- * async await
- * 就是生成器的语法糖
- * 实现原理:就是将 Generator 函数和自动执行器，包装在一个函数里。
- */
-
-function asyncfn(generator){
-    let gen=generator()
-    function step(){
-        let {done,value}=gen.next()
-        if(!done){
-            return
-        }
-        step()
-    }
-    step()
-}
