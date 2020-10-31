@@ -1,13 +1,16 @@
-## 什么是webpack
+# 什么是 webpack
 
-## webpack安装
-```
+## webpack 安装
+
+```JavaScript
 npm i webpack webpack-cli -D
 
 //-D 表示当前是开发依赖,上线时不需要
 ```
-## webpack执行
-```
+
+## webpack 执行
+
+```JavaScript
 //1. 直接运行某一个配置文件
 npx webpack --config webpack.config.js
 
@@ -19,13 +22,18 @@ npx webpack --config webpack.config.js
 
 直接运行npm run build 执行
 ```
+
 ### 启动服务配置
+
 1. 安装依赖
-```
+
+```JavaScript
 npm i webpack-dev-server -D
 ```
+
 2. 使用
-```
+
+```JavaScript
 //直接使用
 npx webpack-dev-server
 //配置script脚本
@@ -37,11 +45,11 @@ npx webpack-dev-server
 
 ```
 
-## webpack基础配置
+## webpack 基础配置
 
 - 默认配置文件的名字是 webpack.config.js
 
-- webpack是node写出来的,要用node的写法来运行
+- webpack 是 node 写出来的,要用 node 的写法来运行
 
 1. 模式配置
 
@@ -74,17 +82,19 @@ devServer :{
     progress:true, //显示打包滚动条
 }
 ```
-### loader配置
 
-
-```
+### loader 配置
 
 ```
 
-### plugin配置
+```
+
+### plugin 配置
 
 #### 1.html-webpack-plugin
+
 指定打包的模板
+
 ```
 //下载安装插件,并引入
 let HtmlWebpackPlugin=require('html-webpack-plugin')
@@ -110,6 +120,7 @@ plugins:[
 
 chunk : 代码块，(多页应用的时候，需要在这里指定要引入的对应的入口文件，也可以指定多个入口文件)
 ```
+
 #### 2.mini-css-extract-plugin
 
 ```
@@ -119,7 +130,9 @@ new MiniCssExtractPlugin({
 }),
 
 ```
+
 #### 3.clean-webpack-plugin
+
 ```
 //打包之前删除指定的文件(这个插件默认会清除 output.path 输出的目录)
 new CleanWebpackPlugin({
@@ -129,6 +142,7 @@ new CleanWebpackPlugin({
 ```
 
 #### 4.copy-webpack-plugin
+
 ```
 //打包的时候将其他一些不在依赖关系里的文件拷贝到指定打包目录下。
 new CopyWebpackPlugin([
@@ -136,9 +150,10 @@ new CopyWebpackPlugin([
 ]),
 
 ```
+
 #### 5.html-webpack-plugin
 
-#### 6.webpack 内置的一些plugin
+#### 6.webpack 内置的一些 plugin
 
 1. BannerPlugin
 
@@ -154,13 +169,17 @@ new webpack.BannerPlugin('make 2020 by lfq')
 new webpack.IgnorePlugin(/\.\/locale/,/moment/),
 
 ```
+
 3. DefinePlugin
+
 ```
 new webpack.DefinePlugin({//定义环境变量（webpack内置的插件）
     DEV:JSON.stringify('dev'),//这里需要使用stringify来进行字符串化，直接使用DEV:"dev"会把dev认为是一个变量
 }),
 ```
+
 4. ProvidePlugin
+
 ```
 new webpack.ProvidePlugin({//在每个模块中都注入$
     $: 'jquery'

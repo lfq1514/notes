@@ -39,7 +39,8 @@ typeof 在判断 null 的时候就出现问题了，由于 null 的所有机器�
 - 2，不能检测基本类型
 
 原理：检测构造函数的 prototype 属性是否出现在某个实例对象的原型链
-```
+
+```JavaScript
 let arr = []
 console.log(arr instanceof Array); //true（检测Array的prototype是否在arr的原型链上 ）
 console.log(arr instanceof RegExp); //false
@@ -56,10 +57,12 @@ console.log(arr instanceof fn)   //true
 let num=1
 console.log(num instanceof Number)   //false
 ```
+
 ## constructor
+
 constructor可以随便改，所以也不准
 
-```
+```JavaScript
 [].constructor===Array
 Symbol().constructor===Symbol   //true
 {}.constructor===Object  //true
@@ -72,11 +75,13 @@ num.constructor===Number  //true
 实际上 其本身上没有constructor属性，就到其原型上的查找（如数组arr=[],arr.__proto__.consctructor===Array）
 
 ```
+
 ## Object.prototype.toString
 
 这是一个万能的检测类型的方法，可以检测任意类型的值，返回当前实例所属类的信息
-```
-跟着jquery学类型检测
+
+```JavaScript
+//跟着jquery学类型检测
 function toType(obj){
     let class2type={}
     //实际上这里的toString就是Object.prototype.toString
@@ -96,7 +101,4 @@ function toType(obj){
         return typeof obj
     }
 }
-
-
-
 ```

@@ -1,8 +1,8 @@
 # 类型转化需要用到的方法
 
-##  底层规范实现上的方法（并没有直接暴露出来）
+## 底层规范实现上的方法（并没有直接暴露出来）
 
-###  1. `ToNumber（value）`（基本类型转数字）
+### 1. `ToNumber（value）`（基本类型转数字）
 
 | 参数类型  | 结果                                                         |
 | --------- | ------------------------------------------------------------ |
@@ -12,7 +12,7 @@
 | Number    | 返回与之相等的值                                             |
 | String    | 如果传入的是一个字符串，它会视图将其转换成一个整数或浮点数，而且会忽略所有前面的0，如果有一个字符不是数组，结果都会返回NaN |
 
-###  2. `ToString(value)`（基本类型转字符串）
+### 2. `ToString(value)`（基本类型转字符串）
 
 | 参数类型  | 结果                            |
 | --------- | ------------------------------- |
@@ -22,7 +22,7 @@
 | Number    | 转化成字符串类型的              |
 | String    | 返回与之相等的值                |
 
-```
+```JavaScript
 console.log(String()) // 空字符串
 
 console.log(String(undefined)) // undefined
@@ -39,7 +39,7 @@ console.log(String(-Infinity)) // -Infinity
 console.log(String(1)) // 1
 ```
 
-###  3.`ToPrimitive(input[, PreferredType])`
+### 3.`ToPrimitive(input[, PreferredType])`
 
 - 输入一个值，然后返回一个一定是基本类型的值
 
@@ -59,9 +59,9 @@ console.log(String(1)) // 1
   3. 否则，调用 valueOf 方法，如果返回一个原始值，则 JavaScript 将其返回。
   4. 否则，JavaScript 抛出一个类型错误异常。
 
-##  暴露出来的方法
+## 暴露出来的方法
 
-###  1.  valueOf()方法
+### 1.  valueOf()方法
 
 - 默认的 valueOf 方法返回这个对象本身
 
@@ -69,12 +69,12 @@ console.log(String(1)) // 1
 
 - 日期是一个例外，它会返回它的一个内容表示: 1970 年 1 月 1 日以来的毫秒数。
 
-  ```
+  ```JavaScript
   var date = new Date(2017, 4, 21);
   console.log(date.valueOf()) // 1495296000000
   ```
 
-###  2. toString()方法
+### 2. toString()方法
 
 1. 当调用对象的 toString 方法时，其实调用的是 Object.prototype 上的 toString 方法。
 2. 数组的 toString 方法将每个数组元素转换成一个字符串，并在元素之间添加逗号后合并成结果字符串。
@@ -82,7 +82,7 @@ console.log(String(1)) // 1
 4. 日期的 toString 方法返回一个可读的日期和时间字符串。
 5. RegExp 的 toString 方法返回一个表示正则表达式直接量的字符串。
 
-```
+```JavaScript
 console.log(({}).toString()) // [object Object]
 
 console.log([].toString()) // ""
@@ -93,39 +93,39 @@ console.log((/\d+/g).toString()) // /\d+/g
 console.log((new Date(2010, 0, 1)).toString()) // Fri Jan 01 2010 00:00:00 GMT+0800 (CST)
 ```
 
-#  不同情况的类型转换
+## 不同情况的类型转换
 
-##  1. 原始值转布尔
+### 1. 原始值转布尔
 
 只有六种可以被转化为false（undefined，null，0，-0，NaN，""）,其他都转化为true
 
-##  2. 原始值转数字
+### 2. 原始值转数字
 
 规范中调用ToNumber（）来实现
 
-##  3. 原始值转字符
+### 3. 原始值转字符
 
 规范中调用ToString（）
 
-##  4. 原始值转对象
+### 4. 原始值转对象
 
 通过调用Number（），String（），Boolean（）构造函数 转化
 
-##  5. 对象转布尔值
+### 5. 对象转布尔值
 
 所有对象都会转为true
 
-##  6. 对象转字符串
+### 6. 对象转字符串
 
 1. 先通过按ToPrimitive（obj，String）来处理
 2. 再通过ToString()来转化
 
-##  7. 对象转数字 
+### 7. 对象转数字
 
 1. 按ToPrimitive（obj，Number）来处理
 2. 再通过ToNumber（）来转化
 
-##  8. 隐式转换
+### 8. 隐式转换
 
 1. 一元操作符+
 
@@ -167,12 +167,3 @@ console.log((new Date(2010, 0, 1)).toString()) // Fri Jan 01 2010 00:00:00 GMT+0
       - 如果是对象类型,x和y指向同一个对象就是true
 
    6. 其他都是false
-
-
-
-
-
-
-
-
-

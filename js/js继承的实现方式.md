@@ -92,7 +92,7 @@ function createObj(o){
 
 ```JavaScript
 function createObj(o){
-    var clone Object.create(o)
+    var clone = Object.create(o)
     clone.sayName=function(){
         console.log('hi')
     }

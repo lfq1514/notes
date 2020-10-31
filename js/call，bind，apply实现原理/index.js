@@ -24,7 +24,7 @@ Function.prototype._call=function(context,...arg){
     return result
 
 }
-// let p1={
+ // let p1={
 //     name:'dfg',
 //     age:123
 // }

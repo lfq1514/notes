@@ -8,6 +8,7 @@
 3. 构造函数体中的this是当前类的实例
 4. 箭头函数中没有自己的this，this都是上下文中的的
 5. 基于call，apply，bind中的this是改变后指定的this
+6. 如果没有特殊指向，setInterval和setTimeout的回调函数中this的指向都是window。这是因为JS的定时器方法是定义在window下的
 
 ##  从规范层的确定this
 知识铺垫：
