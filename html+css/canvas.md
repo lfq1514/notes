@@ -4,7 +4,7 @@
 
 ##  canvas基础命令
 
-```
+```javascript
  let mycanvas=document.querySelector('canvas')
  //获取canvas上下文
  let ctx=mycanvas.getContext('2d')
@@ -30,7 +30,7 @@
 
 ##  绘制直线
 
-```
+```javascript
 //设置画笔起点
  ctx.moveTo()
  //绘制直线，设置画笔移动到哪里
@@ -49,7 +49,7 @@
 
 ##  绘制矩形
 
-```
+```javascript
 //x,y:绘制矩形的起点
 //w:矩形的宽度
 //h:矩形的高度
@@ -65,13 +65,13 @@ ctx.clearRect(x,y,w,h)
 
 ##  渐变
 
-```
+```javascript
   //创建渐变方案(直线渐变)
    let linearGradient= ctx.createLinearGradient(x0,y0,x1,y1)
    //指定渐变起始颜色（0指0%的位置）
    linearGradient.addColorStop(0,'pink')
    //指定渐变结束颜色（1指100%位置）
-   linearGradient.addColorStop(1,'red') 
+   linearGradient.addColorStop(1,'red')
 ```
 
 ##  非零环绕规则（填充规则）
