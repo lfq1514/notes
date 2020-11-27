@@ -65,3 +65,19 @@
 //综合案例
 <path d="M 100 100 L200 100 V50 A100 100 0 1 1 100 200 Z"></path>
 ```
+
+## svg文本
+
+```
+<text x="0" y="15" fill="red" transform="rotate(30 20,40)">I love SVG</text>
+```
+
+## Stroke 属性
+
+Stroke属性定义一条线，文本或元素轮廓颜色：
+
+## stroke-width 属性
+
+stroke- width属性定义了一条线，文本或元素轮廓厚度：
+
+
