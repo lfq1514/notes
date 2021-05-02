@@ -17,3 +17,9 @@
  * 14,String.trimEnd
  *
  */
+
+ function f({name,age}={name:111,age:333}){
+   console.log(name,age)
+
+ }
+ f({name:122,age:222})

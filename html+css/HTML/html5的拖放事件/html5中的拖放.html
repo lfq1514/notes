@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bigBox {
+      width: 300px;
+      height: 300px;
+      background: skyblue;
+
+    }
+    .smallBox {
+      width: 200px;
+      height: 200px;
+      background: pink;
+      
+
+    }
+  </style>
+</head>
+<body>
+  <div class="bigBox" ></div>
+  <div class="smallBox" draggable="true" id="smallBox"></div>
+</body>
+
+<script>
+  const smallBox=document.querySelector('.smallBox')
+  const bigBox=document.querySelector('.bigBox')
+  smallBox.ondrag=function(e){
+    // console.log('drag 0move')
+  }
+  smallBox.ondragstart=function(e){
+    console.log('drag start')
+    // console
+    e.dataTransfer.setData('id',e.target.id)
+  }
+  smallBox.ondragend=function(e){
+    // console.log('drag end')
+  }
+
+  bigBox.ondragenter=function(e){
+    // console.log('drag enter big')
+  }
+  bigBox.ondragover=function(e){
+    e.preventDefault()
+    // console.log('drag over big')
+  }
+  bigBox.ondragleave=function(e){
+    // console.log('drag leave big')
+  }
+  bigBox.ondrop=function(e){
+    const c=e.dataTransfer.getData('id')
+    const element=document.getElementById(c)
+    e.target.appendChild(element)
+
+  }
+  
+</script>
+</html>

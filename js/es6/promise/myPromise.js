@@ -2,6 +2,12 @@ const PENDING = 'PENDING'
 const RESOLVED = 'RESOLVED'
 const REJECTED = 'REJECTED'
 
+const p=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('sss')
+    },1000)
+}).then(()=>{}).then()
+
 function resolvePromise(promise2, x, resolve, reject) {
     /**
      * 问题1;promise和x不能是同一个对象引用
