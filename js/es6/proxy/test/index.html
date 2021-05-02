@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let obj={
+  name:'zs',
+  age:'99'
+}
+const handle={
+  get(target,key,receiver){
+    console.log('get,target,key',target,key,receiver)
+    return target[key]
+  },
+  set(target,key,value,receiver){
+    console.log('拦截set行为',target,value,receiver)
+     target[key]=value
+     return false
+
+  },
+  has(target,key){
+
+  },
+  defineProperty(target,key,descriptor){
+    console.log('defineProperty',target,key)
+    return true
+  }
+}
+
+let nb= new Proxy(obj,handle)
+// nb.name
+// console.log(nb.name)
+// nb.name='nb'
+// console.log('nb',nb)
+Object.defineProperty(nb,'ddd',{
+  // configurable: true,
+  //  enumerable: true,
+  //   value: 10
+})
+
+</script>
+</html>
