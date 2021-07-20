@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script type="text/babel">
+    import {useState} from './core/react-hooks.js'
+
+
+    function Home() {
+      const [number, setNumber] = useState(0)
+      const [type, setType] = useState('react')
+      const changeName = (name) => {
+        setType(name)
+      }
+      return (
+        <div>
+        <span>{number}</span><br />
+        <button onClick={() => setNumber(number + 1)} >change number</button>
+      </div>
+      )
+    }
+    ReactDOM.render(<Home />, document.getElementById('app'));
+  </script>
+</body>
+
+</html>

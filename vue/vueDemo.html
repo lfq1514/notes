@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background: pink;
+    }
+    .smallBox {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- {{name}} -->
+    <div @mouseenter='mouseover1' @mouseleave='mouseleave1' class="box">hello
+
+      <div class="smallBox"></div>
+    </div>
+    <div></div>
+  </div>
+  <script crossorigin="anonymous" integrity="sha512-h3aCJRk6tEHugDYUidF7GqixhzgeXSiSdq5U+5oLIJtIncSQq6eev48qqYfuTdrsH5Q1eO4IAmyJGDwzRaWNNQ==" src="https://lib.baomitu.com/vue/2.6.12/vue.common.dev.js"></script>
+  <script>
+    const vm=new Vue({
+      el:'#app',
+      data:{
+        name:'demo'
+
+      },
+      methods:{
+          mouseover1(){
+            console.log('ddddd')
+
+          },
+          mouseleave1(){
+            console.log('weee')
+
+          },
+         
+
+
+
+      }
+    })
+  </script>
+  
+</body>
+</html>

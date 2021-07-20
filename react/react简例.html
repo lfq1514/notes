@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+ 
+<body>
+  <div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script type="text/babel">
+  class Index extends React.Component{
+    constructor(props){
+      console.log('constrourcor')
+      super(props)
+      this.state ={
+        name:'111'
+      }
+    }
+    static getDerivedStateFromProps(nextProps,preState){
+      return {
+        ...nextProps
+      }
+      
+    }
+    // componentDidMount(){
+    //   console.log('componentDidMount')
+    // }
+
+    // shouldComponentUpdate(nextProps,nextState){
+    //   console.log('shouldComponentUpdate',nextProps,nextState)
+    //   return true
+    // }
+    // UNSAFE_componentWillUpdate(){
+    //   console.log('componentWillUpdate')
+
+    // }
+   render(){
+     console.log('组件渲染',this.state)
+     const { name , type } = this.props
+     const { test } = this.state
+     return <div>
+       hello , my name is { name }
+       let us learn { type }
+       test { test }
+     </div>
+   }
+}
+
+function Home (){
+   const [ number , setNumber  ] = React.useState(0)
+   const [ type , setType ] = React.useState('react')
+   const changeName = (name) => {
+       setType(name)
+   }
+   return <div>
+       <span>{ number }</span><br/>
+       <button onClick={ ()=> setNumber(number + 1) } >change number</button>
+       <Index type={type}   name="alien"  />
+   </div>
+}
+
+
+    ReactDOM.render(<Home />, document.getElementById('app'));
+  </script>
+</body>
+ 
+</html>

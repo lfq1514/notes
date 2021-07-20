@@ -1,12 +1,5 @@
-let obj={next:null}
-
-function handleHooks(){
-  const hook={
-    next:{name:'xxx'}
-  }
-
-  obj=obj.next=hook
+const obj={name:'111'}
+const res=Object.entries(obj)
+for(let key of [1,2]){
+  console.log(key)
 }
-handleHooks()
-console.log(obj)
-

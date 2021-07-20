@@ -76,7 +76,9 @@ function useState(initState){
 ### useEffect
 - 可以把useEffect看成是把 useEffect Hook 看做 componentDidMount，componentDidUpdate 和 componentWillUnmount 这三个函数的组合。
 - useEffect是在组件渲染的时候执行的，（包括初次渲染和再次渲染）
+- 赋值给 useEffect 的函数会在组件渲染到屏幕之后执行
 - 当你调用useEffect时，就是在告诉React在完成对Dom对更改后运行你对‘副作用’函数
+
 #### 不需要清除的effect
 ```javascript
 
@@ -115,6 +117,30 @@ useEffect(()=>{
   updateUI()
 },[])
 ```
+#### 如何在useEffect中使用await和async
+
+由于useEffect的执行函数返回都只能是一个清除函数，或者什么都不返回。如果使用了async await，因为async函数返回都是一个promise，所以会报错
+
+错误事例如下：
+  ```js
+  useEffect(async()=>{
+    const a=await getList()
+  })
+  //此时就会报错
+  ```
+
+  正确事例
+
+  ```js
+   useEffect(()=>{
+    const getHttpsData=async ()=>{
+    const res=  await Promise.resolve([{name:'1',age:1}])
+    }
+    getHttpsData()
+  })
+  ```
+
+
 ### useMemo
 - 把“创建”函数和依赖项数组作为参数传入 useMemo，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算。
 - 传入 useMemo 的函数会在渲染期间执行

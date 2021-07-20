@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 200px;
+      background: skyblue;
+    }
+  </style>
+</head>
+<body>
+
+  <div  class="box">
+    hello
+
+  </div>
+  <button>click me</button>
+  
+</body>
+<!-- <script src="./throttle.js"></script> -->
+<script type="module">
+  import  {debounce} from './debounce.js'
+  import  {throttle} from './throttle.js'
+  
+  const container=document.getElementsByClassName('box')
+  function mouseoverFn(e){
+    console.log('dddd',e)
+
+  }
+  container[0].addEventListener('mousemove',throttle(mouseoverFn,1000,true))
+
+ 
+  
+  
+
+</script>
+</html>

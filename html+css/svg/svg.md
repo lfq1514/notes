@@ -89,4 +89,28 @@ Stroke属性定义一条线，文本或元素轮廓颜色：
 
 stroke- width属性定义了一条线，文本或元素轮廓厚度：
 
+##  stroke-dasharray 创建虚线
+
+```js
+stroke-dasharray = '10'
+stroke-dasharray = '10, 5'
+stroke-dasharray = '20, 10, 5'
+```
+ 1. stroke-dasharray为一个参数时： 其实是表示虚线长度和每段虚线之间的间距
+ 如：stroke-dasharray = '10' 表示：虚线长10，间距10，然后重复 虚线长10，间距10
+ 2. 两个参数或者多个参数时：一个表示长度，一个表示间距
+ 如：stroke-dasharray = '10, 5' 表示：虚线长10，间距5，然后重复 虚线长10，间距5
+　　如：stroke-dasharray = '20, 10, 5' 表示：虚线长20，间距10，虚线长5，接着是间距20，虚线10，间距5，之后开始如此循环
+
+相关链接：
+[stroke-dasharray 和 stroke-dashoffset 详解](https://www.cnblogs.com/daisygogogo/p/11044353.html)
+
+## svg 连续曲线的填充规则
+
+通过属性fill-rule来指定填充规则
+
+[fill-rule](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute/fill-rule)
+
+
+
 

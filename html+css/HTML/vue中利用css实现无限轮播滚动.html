@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .box {
+    width: 200px;
+    height: 400px;
+    border: 1px solid red;
+    overflow: hidden;
+
+  }
+  .list {
+    /* animation: rowUp 10s linear infinite normal */
+  }
+  .pause {
+    animation-play-state: paused;
+    /* overflow: auto; */
+  }
+</style>
+<script crossorigin="anonymous"
+  integrity="sha512-h3aCJRk6tEHugDYUidF7GqixhzgeXSiSdq5U+5oLIJtIncSQq6eev48qqYfuTdrsH5Q1eO4IAmyJGDwzRaWNNQ=="
+  src="https://lib.baomitu.com/vue/2.6.12/vue.common.dev.js"></script>
+
+<body>
+  <div id="app">
+    <div class="box" ref="bigBox">
+      <div :class="{'list':true,'pause':isPause}" :style='moveAnimalStyle' ref="list" @mouseover="mouseOver" @mouseout="mouseOut">
+        <p v-for='(item,i) in list'>
+          {{item.title}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        list: [
+          { title: '1帝高阳之苗裔兮，朕皇考曰伯庸。摄提贞于孟陬兮，惟庚寅吾以降。皇览揆余初度兮，肇锡余以嘉名。' },
+          { title: '2帝高阳之苗裔兮，朕皇考曰伯庸。摄提贞于孟陬兮，惟庚寅吾以降。皇览揆余初度兮，肇锡余以嘉名。' },
+          { title: '3帝高阳之苗裔兮，朕皇考曰伯庸。摄提贞于孟陬兮，惟庚寅吾以降。皇览揆余初度兮，肇锡余以嘉名。' },
+          { title: '4帝高阳之苗裔兮，朕皇考曰伯庸。摄提贞于孟陬兮，惟庚寅吾以降。皇览揆余初度兮，肇锡余以嘉名。' },
+          { title: '5帝高阳之苗裔兮，朕皇考曰伯庸。摄提贞于孟陬兮，惟庚寅吾以降。皇览揆余初度兮，肇锡余以嘉名。' },
+        ],
+        isPause:false,
+        moveAnimalStyle:{
+          animation:`rowUp ${20}s linear infinite normal`
+
+        }
+      },
+      methods: {
+        setStyle: function(){
+          const listDom = this.$refs.list
+          //视口高度
+          const boxHeight=listDom.clientHeight
+          //list列表高度
+          const listHeight=listDom.scrollHeight
+          if(listHeight<boxHeight) return 
+          this.list = [...this.list, ...this.list]
+          let style = document.createElement('style');
+          style.setAttribute('type', 'text/css');
+          document.head.appendChild(style);
+          let sheet = style.sheet;
+          //根据每一个时钟的数据为页面添加不同的keyframes
+          sheet.insertRule(
+            ` @keyframes rowUp {
+          from {
+              transform: translate3d(0, 0, 0);
+            }
+            to {
+              transform: translate3d(0, -${listHeight}px, 0);
+            }
+          }`, 0);
+        },
+        mouseOver:function(){
+          console.log('xxxxx')
+          this.isPause=true
+        },
+        mouseOut:function(){
+        
+          this.isPause=false
+        },
+      },
+      mounted() {
+         this.setStyle()
+      }
+    })
+
+  </script>
+</body>
+
+</html>

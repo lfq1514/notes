@@ -1,1 +1,0 @@
-class TestView extends Component

@@ -1,17 +1,18 @@
-class Foo {
-  setName(){
-    console.log(p1)
-  }
-}
+// class Foo {
+//   setName(){
+//     console.log(p1)
+//   }
+// }
 
-const p1={name:123}
+// const p1={name:123}
 
-const f=new Foo()
+// const f=new Foo()
 
-function addProps(target){
-  target.isTest=true
-}
+// function addProps(target){
+//   target.isTest=true
+// }
 
-addProps(Foo)
-console.log('Foo.isTest',Foo.isTest)
+// addProps(Foo)
+// console.log('Foo.isTest',Foo.isTest)
+
 
