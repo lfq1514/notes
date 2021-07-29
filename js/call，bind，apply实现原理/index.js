@@ -18,6 +18,10 @@
 Function.prototype._call=function(context,...arg){
     //如果不传的话，默认是window
     context=context||window
+
+    if(/^(object|function)&/i.test(typeof context)){
+        context=Object(context)
+    }
     context.fn=this
    let result= context.fn(...arg)
     delete context.fn

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/babel">
+      class Child extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            name: "child",
+          };
+        }
+
+        componentWillMount() {
+          console.log("componentWillMount---child");
+        }
+
+        componentDidMount() {
+          console.log("componentDidMount---child");
+        }
+        shouldComponentUpdate() {
+          console.log("shouldComponentUpdate---child");
+          return false;
+        }
+        clickMe = () => {
+          console.log("ddd");
+          this.setState({ name: "child" });
+        };
+        render() {
+          console.log("child--render");
+          return <div onClick={this.clickMe}>{this.state.name}</div>;
+        }
+      }
+      class Index extends React.Component {
+        constructor(props) {
+          console.log("constrourcor");
+          super(props);
+          this.state = {
+            name: "111",
+          };
+        }
+        // static getDerivedStateFromProps(nextProps, preState) {
+        //   console.log('getDerivedStateFromProps')
+        //   return {
+        //     ...nextProps
+        //   }
+        // }
+        componentWillMount() {
+          console.log("componentWillMount");
+        }
+        componentDidMount() {
+          console.log("componentDidMount");
+          this.setState({ name: "222" });
+        }
+
+        // shouldComponentUpdate(nextProps,nextState){
+        //   console.log('shouldComponentUpdate',nextProps,nextState)
+        //   return true
+        // }
+        // UNSAFE_componentWillUpdate(){
+        //   console.log('componentWillUpdate')
+
+        // }
+        render() {
+          console.log("render", this.state);
+          const { type } = this.props;
+          const { test, name } = this.state;
+          return (
+            <div>
+              hello , my name is {name}
+              let us learn {type}
+              test {test}
+              <Child />
+            </div>
+          );
+        }
+      }
+
+      function Home() {
+        var [number, setNumber] = React.useState(0);
+        var [number, setNumber] = React.useState(1);
+        const [type, setType] = React.useState("react");
+        const changeName = (name) => {
+          setType(name);
+        };
+        const initState = { count: 0 };
+        const reducer = (state, action) => {
+          switch (action) {
+            case "add":
+              return { ...state, count: state.count + 1 };
+            case "desc":
+              return { ...state, count: state.count - 1 };
+          }
+        };
+
+        const [state, dispatch] = React.useReducer(reducer, initState);
+
+        return (
+          <div>
+            <span>{state.count}</span>
+            <br />
+            <button onClick={() => dispatch("add")}>num+1</button>
+            <button onClick={() => dispatch("desc")}>num-1</button>
+            <Index type={type} name="alien" />
+          </div>
+        );
+      }
+
+      ReactDOM.render(<Home />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

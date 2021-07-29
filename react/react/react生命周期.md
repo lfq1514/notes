@@ -43,3 +43,8 @@ constructor
 2. 
 ## react16 要废弃的生命周期
 
+ componentWillMount
+ componentWillUpdate
+ componentWillReceiveProps
+ componentWillUnmount
+
