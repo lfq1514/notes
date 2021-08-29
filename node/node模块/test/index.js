@@ -1,0 +1,5 @@
+const function2 = () => console.trace()
+const function1 = () => function2()
+function1()
+console.error('111')
+console.log('\x1b[33m%s\x1b[0m', '你好')

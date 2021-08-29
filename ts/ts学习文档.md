@@ -1,5 +1,7 @@
 # ts学习文档
 
+[ts泛型万文优质文章链接](https://mp.weixin.qq.com/s/iU42l3bIVGlZGnWs1DYNcg)
+
 ## ts基本类型
 
 1. 字符串
@@ -211,7 +213,7 @@ function fn(value:string|number):void{
 
 ### 类的修饰符
 - public
-默认类的属性都是public，常省略不写
+默认类的属性都是public，常省略不写 自己，自己的子类，其他类都能访问
 - private
 通过private修饰符修饰的属性，只能由自己来访问，自身的实例及子类不能访问到
 - protected

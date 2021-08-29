@@ -42,9 +42,9 @@ typeof 在判断 null 的时候就出现问题了，由于 null 的所有机器�
 
 ```JavaScript
 let arr = []
-console.log(arr instanceof Array); //true（检测Array的prototype是否在arr的原型链上 ）
+console.log(arr instanceof Array); //true（检测Array的prototype是否在arr的原型链上 ） arr.__proto__=Array.prototype
 console.log(arr instanceof RegExp); //false
-console.log(arr instanceof Object); //true
+console.log(arr instanceof Object); //true  arr.__proto__.__proto__=Object.prototype
 
 
 //修改原型指向

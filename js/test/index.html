@@ -35,8 +35,25 @@
 
 </div>
 <script>
-    let dom=document.querySelector('.father')
-    console.log('dom',dom)
+    class F {
+    constructor(house){
+        this.house=house
+    }
+    getHome(){
+        console.log('getHome')
+    }
+}
+
+class C extends F {
+    constructor(name){
+        super('老家')
+        this.name=name
+    }
+}
+
+const c=new C('ss')
+console.dir(c)
+
 </script>
 
 </body>

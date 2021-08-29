@@ -105,7 +105,7 @@ function createObj(o){
 - 解决了伪经典继承中,构造函数执行两次的问题
 - 问题:
 
-1. 会覆盖Sub的protoType上定义的属性和方法
+1. 会覆盖Sub的prototype上定义的属性和方法
 
 ```JavaScript
 function Super(){
