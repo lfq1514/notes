@@ -1,0 +1,1 @@
+class Feater{constructor(t,s){this.feater=t,this.name=s,this.f=11}}

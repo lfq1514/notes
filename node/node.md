@@ -17,7 +17,11 @@
 ### progress
 
 - progress.cwd
+当前工作目录
+
 - progress.argv
+获取在终端（命令行）输入的指令
+ minimist库 可以用来将progress.argv参数处理成对象的格式
 - progress.env
 - progress.nextTick
 
