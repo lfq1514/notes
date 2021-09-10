@@ -1,15 +1,19 @@
 {
-  "name": "node",
+  "name": "lfq-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "lfq-s": "./bin/www.js",
+    "lfq-server": "./bin/www.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^16.6.2",
-    "nodemon": "^2.0.12"
+    "commander": "^8.1.0"
   }
 }

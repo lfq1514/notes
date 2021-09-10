@@ -1,6 +1,6 @@
 ### 处理get请求
 
-```
+```js
 const express=require('express')
 //处理request请求头为content-type:application/json的格式
 express.use(express.json())
