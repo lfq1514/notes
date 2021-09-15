@@ -247,6 +247,9 @@ class P1 extends Person {
 
 
 ## 泛型
+- 泛型定义
+
+- 泛型约束（通过继承）
 ```javascript
 function sun
 ```

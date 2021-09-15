@@ -32,7 +32,7 @@ program.parse(process.argv)
 //用户在命令行输入的参数
 const userOption=program.opts()
 
-// console.log('useOptions',userOption)
+console.log('useOptions',userOption)
 // console.log('defaultOptions',defaultOptions)
 
 const mergeOptions=Object.assign(defaultOptions,userOption)

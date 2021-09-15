@@ -14,7 +14,7 @@ ws.on('open',function name(fd) {
     console.log('open',fd)
 })
 
-调用了end方法才会执行close监听方法
+//调用了end方法才会执行close监听方法
 ws.on('close',function name(fd) {
     console.log('close')
 })
