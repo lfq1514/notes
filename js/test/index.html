@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body  {
+        body {
             height: 600px;
             /* background: pink; */
             padding: 50px;
         }
+
         .father {
             width: 300px;
-            height: 300px;
+            height: 1000px;
             /* background: skyblue; */
             position: relative;
             margin-top: 100px;
@@ -26,35 +28,20 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="father" name-reactid='111'>
-       
+    <div class="father">
+
 
     </div>
 
 
-</div>
-<script>
-    class F {
-    constructor(house){
-        this.house=house
-    }
-    getHome(){
-        console.log('getHome')
-    }
-}
+    </div>
+    <script>
 
-class C extends F {
-    constructor(name){
-        super('老家')
-        this.name=name
-    }
-}
 
-const c=new C('ss')
-console.dir(c)
-
-</script>
+    </script>
 
 </body>
+
 </html>

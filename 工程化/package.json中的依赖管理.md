@@ -14,3 +14,6 @@
 - 通过NODE_ENV=developement或NODE_ENV=production指定开发还是生产环境
 - dependencies依赖的包不仅开发环境能使用，生产环境也能使用
 
+
+[package.json详细说明](https://juejin.cn/post/7023539063424548872)
+

@@ -29,12 +29,12 @@ class Father {
 Father.test1=111
 
 class Child extends Father{
-    constructor(home,myName){
-        super(home)
-        this.myName=myName
+    constructor(){
+       
     }
+
 
 }
 
-const c=new Child('我的家','zs')
-console.log('c',c)
+const c=new Child
+// console.log('c',c)

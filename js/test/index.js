@@ -1,22 +1,6 @@
-function operationFn(sb, a, b) {
-    let res
-    switch (sb) {
-        case "===":
-            res= a === b;
-        case "!==":
-            res= a !== b;
-        case "<=":
-            res= a <= b;
-        case ">=":
-            res=a >= b;
-        case "!=":
-            res=a != b;
-        case "==":
-            res=a == b;
-
-    }
-    return res
-}
-
-const r=operationFn('===',1,2)
-console.log('r',r)
+let arr = [1, 2, 3];
+const res=arr.find((item) => {
+    console.log(item);
+    return item >= 2;
+});
+console.log('res',res)

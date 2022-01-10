@@ -1,0 +1,1 @@
+{"version":3,"file":"vue.js","sources":["../src/utils.js","../src/index.js"],"sourcesContent":["export const a=1\n\nexport const b={name:'bbb'}\n\n\n \n","import {a,b} from './utils'\nconsole.log('a',a)\n"],"names":["a","console","log"],"mappings":";;;;;CAAO,IAAMA,CAAC,GAAC,CAAR;;CCCPC,OAAO,CAACC,GAAR,CAAY,GAAZ,EAAgBF,CAAhB;;;;;;"}
