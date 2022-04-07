@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="file" class="ipt" />
+        <div class="textBox"></div>
+        <div class="imgBox"></div>
+    </body>
+    <script>
+        const ipt = document.querySelector(".ipt");
+
+        let chunks = [];
+
+        ipt.addEventListener("change", (e) => {
+            const imgBox = document.querySelector(".imgBox");
+            let read = new FileReader();
+            let file = e.target.files[0];
+            let total = file.size;
+            let step = 300;
+            let start = 0;
+            let end = 300;
+
+            while (start < total) {
+                chunks.push(file.slice(start, end));
+                start = end;
+                end += step;
+            }
+            console.log(file.size);
+            console.log(chunks);
+
+            read.readAsDataURL(file);
+            read.onload = function (e) {
+                let img = new Image();
+                img.src = e.target.result;
+                img.onload = function () {
+                    imgBox.appendChild(img);
+                };
+            };
+        });
+    </script>
+</html>

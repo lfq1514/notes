@@ -92,7 +92,7 @@ Partial 源码实现
 
 ```ts
 type Partial<T> = {
-    [p in keyof Y]?: T[P];
+    [P in keyof T]?: T[P];
 };
 ```
 
@@ -104,7 +104,7 @@ Required<T> 的作用就是将某个类型里的属性全部变为必选项。
 
 ```ts
 type Required<T> = {
-    [p in keyof Y]-?: T[P];
+    [p in keyof T]-?: T[P];
 };
 ```
 
@@ -166,6 +166,8 @@ const p1: Person = {
 ```ts
 type Exclude<T, U> = T extends U ? never : T;
 //如果 T 是 U 的子类型则返回 never 不是则返回 T
+T = 1 | 2 | 3;
+U = 2 | 3;
 ```
 
 -   **exclude 的语义**
@@ -176,7 +178,8 @@ type Exclude<T, U> = T extends U ? never : T;
 ```
 
 ## Extract
-Extract<T, U> - 用于从类型T中取出可分配给U类型的成员
+
+Extract<T, U> - 用于从类型 T 中取出可分配给 U 类型的成员
 
 ## Omit
 
@@ -186,6 +189,9 @@ Extract<T, U> - 用于从类型T中取出可分配给U类型的成员
 
 ```ts
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
+T = 1 | 2 | 3;
+k = 2;
 ```
 
 例子

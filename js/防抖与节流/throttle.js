@@ -4,24 +4,24 @@
  * @param {*} fn
  */
 
- //时间戳版
- /**
-  * 1.当触发事件的时候,取出当前的时间戳,减去之前的时间戳(初始值为0)
-  * 2.默认第一次立即执行
-  * 3.从第二次起,如果当前执行的时间与上一次执行的时间间隔大于设置值,则再次执行,否则不执行
-  *
-  *
-  */
-function throttle(fn,wait){
-    let previous=0
-    return function(){
-        let now= Date.now()
+//时间戳版
+/**
+ * 1.当触发事件的时候,取出当前的时间戳,减去之前的时间戳(初始值为0)
+ * 2.默认第一次立即执行
+ * 3.从第二次起,如果当前执行的时间与上一次执行的时间间隔大于设置值,则再次执行,否则不执行
+ *
+ *
+ */
+function throttle(fn, wait) {
+    let previous = 0;
+    return function () {
+        let now = Date.now();
         //默认第一次执行,从第二次起,如果当前执行的时间与上一次执行的时间间隔大于设定值,则再次执行,否则不执行
-        if(now-previous>wait){
-            fn.apply(this,arguments)
-            previous=now
+        if (now - previous > wait) {
+            fn.apply(this, arguments);
+            previous = now;
         }
-    }
+    };
 }
 
 //定时器版
@@ -33,14 +33,14 @@ function throttle(fn,wait){
  *
  */
 
-function throttle(fn,wait){
-    let timer
-    return function(){
-        if(!timer){
-            timer=setTimeout(()=>{
-                timer=null
-                fn.apply(this,arguments)
-            },wait)
+function throttle(fn, wait) {
+    let timer;
+    return function () {
+        if (!timer) {
+            timer = setTimeout(() => {
+                timer = null;
+                fn.apply(this, arguments);
+            }, wait);
         }
-    }
+    };
 }

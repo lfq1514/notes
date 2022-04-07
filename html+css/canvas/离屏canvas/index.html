@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <canvas id="ctx"></canvas> -->
+        <canvas id="one"></canvas>
+    </body>
+
+    <script>
+        var offscreen = new OffscreenCanvas(400, 400);
+        var offCtx = offscreen.getContext("2d");
+
+        offCtx.rect(0, 0, 100, 100);
+        offCtx.fillStyle = "blue";
+        offCtx.fill();
+
+        var one = document.getElementById("one").getContext("bitmaprenderer");
+        var bitmapOne = offscreen.transferToImageBitmap();
+        one.transferFromImageBitmap(bitmapOne);
+
+        // const canvas = document.getElementById("ctx");
+
+        // canvas.width = 400;
+        // canvas.height = 400;
+
+        // const ctx = canvas.getContext("2d");
+
+        // const offCanvas = document.createElement("canvas");
+        // offCanvas.width = 400;
+        // offCanvas.height = 400;
+        // const offCtx = offCanvas.getContext("2d");
+        // offCtx.rect(0, 0, 300, 300);
+        // offCtx.fillStyle = "blue";
+        // offCtx.fill();
+
+        // ctx.drawImage(offCanvas, 0, 0);
+    </script>
+</html>

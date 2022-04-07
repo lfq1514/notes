@@ -1,13 +1,11 @@
-function create(obj){
+function create(obj) {
+    if (typeof obj !== "object") {
+        throw new TypeError("Object prototype may only be an Object");
+    }
 
-  if(typeof obj !=='object'){
-    throw new TypeError('Object prototype may only be an Object')
-  }
+    function Fn() {}
 
-  function Fn(){}
+    Fn.prototype = obj;
 
-  Fn.prototype=obj
-
-  return new Fn()
-
+    return new Fn();
 }

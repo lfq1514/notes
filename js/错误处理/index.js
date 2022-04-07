@@ -22,7 +22,6 @@
 //   console.log('e',e)
 // }
 
-
 //3. 错误优先处理方式
 // function test(cb){
 
@@ -43,10 +42,9 @@
 // }
 
 // test((err,res)=>{
-//   if(err){
+//   if(err)
 //     console.log('err',err)
 //   }else {
 //     console.log('res',res)
 //   }
 // })
-
