@@ -1,6 +1,7 @@
 # ts 学习文档
 
 [ts 泛型万文优质文章链接](https://mp.weixin.qq.com/s/iU42l3bIVGlZGnWs1DYNcg)
+[你不知道的tsconfig.json](https://mp.weixin.qq.com/s?__biz=MzA3MjU5NjU2NA%3D%3D&chksm=88b348debfc4c1c8c475662b1348ccd39eb17468cf3f09f49d0a8c63be420f48cd0a23d841ef&idx=1&mid=2455504357&scene=21&sn=818274b04bb9e5e151df3c15e672b0f4#wechat_redirect)
 
 ## ts 基本类型
 

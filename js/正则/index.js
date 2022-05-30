@@ -11,11 +11,10 @@
 // let r=str.match(/\bcat\b/)
 // console.log('r',r)
 
-let s1 = "深圳市/宝安区/前海大道";
+let str='xxxxx-sssss·sdfasdfa-sadfasdf'
+let reg=/^(\w)+(([-·])(\w)+)*/
+const res=str.match(reg)
 
-let s2 = "宝安区前海大道嘉里中心";
+console.log('res',res)
 
-let r1 = /(.+)\/\1\/\1/;
-
-const res = s1.match(r1);
-console.log("res", res);
+// let reg=/[a-zA-Z]+[-·][a-zA-Z]+/

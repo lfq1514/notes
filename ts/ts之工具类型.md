@@ -5,7 +5,7 @@
 
 ## typeof
 
-typeof 操作符可以用来获取一个变量的声明类型
+typeof 操作符可以用来获取一个变量的声明类型。
 
 ```ts
 interface Person {

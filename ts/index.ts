@@ -50,3 +50,18 @@ interface Inter1 {
 interface Inter2 extends Inter1 {
     test: number;
 }
+
+type deepReadOnly<T>={
+    readonly[P in keyof T]:
+    T[P] extends object?
+        keyof T[P] extends never?
+        T[P]
+        :
+        deepReadOnly<T[P]>
+    :
+    T[P]
+}
+
+
+
+

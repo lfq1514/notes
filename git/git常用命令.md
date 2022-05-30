@@ -28,3 +28,7 @@
 ## git tag
 
 打 tag 标签
+
+## git commit --amend
+
+修改最后一次commit的提交信息
