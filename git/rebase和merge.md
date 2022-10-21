@@ -1,5 +1,4 @@
 # git merge 和 git rebase 的详细解读
-
 ## git rebase 之合并commit提交记录
 + 使用git rebase合并多次提交
   1. git rebase -i HEAD~3（合并最近3次的提交，注意:默认会保留最初始状态的commit，这个commit不会被合并，例如：本地有3次commit记录，则只能合并最近的两次，最初的那一条是不会也不能被合并的）
