@@ -1,31 +1,27 @@
-var addBinary = function (a, b) {
-    if (a.length > b.length) {
-        b.padStart(a.length, 0);
+ function loadScript() {
+    const p1 = new Promise((resolve, reject) => {
+        reject(1);
+    });
+
+    const p2 = new Promise((resolve, reject) => {
+        resolve(2);
+    });
+    return  Promise.all([p1, p2]);
+    // return  p1
+}
+
+async function getResult() {
+    try{
+        const res = await loadScript();
+        console.log('res',res)
+    }catch(e){
+        console.log('e',e)
+
     }
-    if (a.length < b.length) {
-        a.padStart(b.length, 0);
-    }
-    let stack = [];
-    a = a.split("").reverse();
-    b = b.split("").reverse();
-    debugger;
-    for (let i = 0; i < a.length; i++) {
-        if (Number(a[i]) + Number(b[i]) === 0) {
-            stack[i] = 0;
-        }
-        if (Number(a[i]) + Number(b[i]) === 1) {
-            if (stack[i + 1]) {
-                stack[i] = 0;
-                stack[i + 1] = 1;
-            }
-        }
-        if (Number(a[i]) + Number(b[i]) === 2) {
-            stack[i] = 0;
-            stack[i + 1] = 1;
-        }
-    }
-    console.log("stack", stack);
-    return stack.reverse().join("");
-};
-const res = addBinary("1100", "1011");
-console.log("res", res);
+    
+    // console.log("res", res);
+}
+
+getResult()
+
+

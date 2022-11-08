@@ -27,11 +27,17 @@
                 }
 
                 componentWillMount() {
-                    console.log("componentWillMount---child");
+                  
                 }
 
                 componentDidMount() {
                     console.log("componentDidMount---child");
+                    console.log("componentWillMount---child");
+                    let head=document.getElementsByTagName('head')[0]
+                    let script=document.createElement('link')
+                    script.setAttribute('src','www.baidu.com')
+                    script.setAttribute('rel','stylesheet')
+                    head.insertBefore(script,head.firstChild)
                 }
                 shouldComponentUpdate() {
                     console.log("shouldComponentUpdate---child");
@@ -63,7 +69,7 @@
                     return (
                         <div>
                             hello , my name is
-                            <button onClick={changeChildData}>
+                            <button onClick={this.changeChildData}>
                                 child中的button
                             </button>
                             <Child childP={info} />
