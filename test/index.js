@@ -19,7 +19,6 @@ async function getResult() {
 
     }
     
-    // console.log("res", res);
 }
 
 getResult()
