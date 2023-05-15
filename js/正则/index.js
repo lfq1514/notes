@@ -11,10 +11,15 @@
 // let r=str.match(/\bcat\b/)
 // console.log('r',r)
 
-let str='xxxxx-sssss·sdfasdfa-sadfasdf'
-let reg=/^(\w)+(([-·])(\w)+)*/
-const res=str.match(reg)
+// let str='xxxxx-sssss·sdfasdfa-sadfasdf'
+// let reg=/^(\w)+(([-·])(\w)+)*/
+// const res=str.match(reg)
 
+// console.log('res',res)
+
+let str="lang.template('uuidx-sssx')"
+
+let reg=/(?<=lang\.template\()('.+')(?=\))/g
+
+let res=str.match(reg)
 console.log('res',res)
-
-// let reg=/[a-zA-Z]+[-·][a-zA-Z]+/
