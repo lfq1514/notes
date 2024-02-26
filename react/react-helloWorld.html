@@ -57,14 +57,19 @@
                     super(props);
                     this.state = {
                         info: { name: "zs" },
+                        currentData:{info:'这是初始化的值'}
                     };
                 }
                 changeChildData = () => {
-                    this.setState({ info: { name: "ls" } });
+                    this.setState({
+                        currentData:{
+                            info:'这是更新后的值'
+                        }
+                    });
                 };
 
                 render() {
-                    console.log("render", this.state);
+                    console.log("render", this.state.currentData);
                     const { info } = this.props;
                     return (
                         <div>
@@ -80,6 +85,9 @@
 
             function Home() {
                 var [info, serInfo] = React.useState({ name: "zs" });
+                React.useEffect(()=>{
+                    console.log('home--useEffect--')
+                })
                 const changeName = (name) => {
                     serInfo({ name: "ls" });
                 };

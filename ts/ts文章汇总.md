@@ -1,0 +1,1 @@
+1.[一篇让你完全够用TS(TypeScript)的指南](https://zhuanlan.zhihu.com/p/505175155)

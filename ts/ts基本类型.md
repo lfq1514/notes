@@ -120,6 +120,9 @@ const num: void = undefined;
 
 -   never 类型表示的是那些永不存在的值的类型。
 -   实际场景会很少用到它，只有在死循环，以及抛出错误到时候，才会用到
+-   never在工具类型中的作用
+
+
 
 ```javascript
 function createError(): never {
@@ -131,7 +134,7 @@ function infiniteLoop(): never {
 }
 ```
 
-11. object
+1.  object
 
 -   object 表示非原始值，也就是除 number,string,boolean,symbol,null,undefined 之外到值
 

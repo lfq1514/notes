@@ -79,11 +79,61 @@ type Exclude<T, U> = T extends U ? never : T;
 type T0 = Exclude<"a" | "b" | "c", "a">; //结果为 "b" | "c"
 ```
 
+- 分配条件类型
+- 满足两个要点即可适用分配律：第一，参数是泛型类型，第二，代入参数的是联合类型
+
+- 对于使用extends关键字的条件类型（即上面的三元表达式类型），如果extends前面的参数是一个泛型类型，当传入该参数的是联合类型，则使用分配律计算最终的结果。分配律是指，将联合类型的联合项拆成单项，分别代入条件类型，然后将每个单项代入得到的结果再联合起来，得到最终的判断结果。
+
+```ts
+    //例1
+    type A1 = 'x' extends 'x' ? string : number; // string
+
+    //例2
+    //如果extends前面是普通联合类型，需要每个类型extends后面的类型，然后取并集
+    type A2 = 'x' | 'y' extends 'x' ? string : number; // number
+    //例3
+    //如果extends后面是联合类型的话，只要前面的extends后面的某一个是真，就是真
+    type A4='x' extends 'x'|'y'?string : number//string
+
+    //例4
+    //对于使用extends关键字的条件类型（即上面的三元表达式类型），如果extends前面的参数是一个泛型类型，当传入该参数的是联合类型，则使用分配律计算最终的结果。分配律是指，将联合类型的联合项拆成单项，分别代入条件类型，然后将每个单项代入得到的结果再联合起来，得到最终的判断结果。
+    type P<T> = T extends 'x' ? string : number;
+    type A3 = P<'x' | 'y'> // A3的类型是 string | number
+
+    interface Tmp1 {
+        foo: string;
+        bar: string;
+        baz: string;
+    }
+    interface Tmp0{
+        foo: string;
+        bar: string;
+        baz: string;
+        sss:number
+    }
+    
+    interface Tmp2 {
+        foo: string;
+        baz: string;
+    }
+    //例5
+    //如果是接口类型，可以理解为是包含关系
+    type V=tmp1 extends Tmp2?string:number// V的类型是 string
+
+    //例6(同例2)
+    type V = Tmp1|Tmp0 extends Tmp2?string:number// V的类型是 string
+    //例7(同例2)
+    type V = Tmp1|'x' extends Tmp2?string:number// V的类型是 number
+    //例8(同例3)
+    type V = Tmp1 extends Tmp2|'x'?string:number// V的类型是 string
+
+```
+
 -   参考链接：
 
 1. [TypeScript 的 extends 条件类型](https://juejin.cn/post/6844904066485583885)
 2. [玩转 TypeScript 工具类型（中）](https://mp.weixin.qq.com/s/V6LegBdQgz8pqHnozYCTDA)
-
+3. [TS关键字extends用法总结](https://juejin.cn/post/6998736350841143326?searchId=20231009152158A17CFF60D05C28085040)
 ## Partial
 
 Partial<T> 的作用就是将某个类型里的属性全部变为可选项
@@ -170,8 +220,8 @@ T = 1 | 2 | 3;
 U = 2 | 3;
 ```
 
--   **exclude 的语义**
-    如果 T 是 U 的子类型的话，那么就会返回 X，否则返回 Y
+-   **exclude<T,U> 的语义**
+   其作用是从第一个联合类型T参数中，将第二个联合类型U中出现的联合项全部排除，只留下没有出现过的参数。
 
 ```ts
  T extends U ? X : Y

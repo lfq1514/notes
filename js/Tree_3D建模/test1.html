@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+<script type="module">
+     var scene = new THREE.Scene();
+    const loader = new GLTFLoader()
+    loader.load(
+	// resource URL
+	'./TreeHouse.glb',
+	// called when the resource is loaded
+	function ( gltf ) {
+
+		scene.add( gltf.scene );
+
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	}
+);
+  
+
+</script>
+
+</html>

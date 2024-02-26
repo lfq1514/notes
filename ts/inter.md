@@ -1,0 +1,1 @@
+[快速掌握 TypeScript 新语法：infer extends](https://juejin.cn/post/7133438765317488677?from=search-suggest)
