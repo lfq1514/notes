@@ -1,25 +1,8 @@
-// let r = /<(\w+)>(.*)<\/\1>/g;
-// let s = "<div>123</div>";
-// let n = s.match(r);
+let reg=/\d+/g
 
-// let r1 = /<(\w+)>(.*)<\/\1>/g;
-// let s1 = "<div>123</div>";
-// let n1 = s.match(r);
-// console.dir(RegExp.$2)
+let str='ddd1212lll122231eee22'
+const res=str.matchAll(reg)
+console.log('reg',[...res])
 
-// let str='The cat scattered his food all over the room.'
-// let r=str.match(/\bcat\b/)
-// console.log('r',r)
 
-// let str='xxxxx-sssss·sdfasdfa-sadfasdf'
-// let reg=/^(\w)+(([-·])(\w)+)*/
-// const res=str.match(reg)
 
-// console.log('res',res)
-
-let str="lang.template('uuidx-sssx')"
-
-let reg=/(?<=lang\.template\()('.+')(?=\))/g
-
-let res=str.match(reg)
-console.log('res',res)

@@ -31,3 +31,7 @@
 ## git commit --amend
 
 修改最后一次commit的提交信息
+
+##  git worktree
+
+git worktree add <path> [<branch>]：

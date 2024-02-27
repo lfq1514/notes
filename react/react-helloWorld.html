@@ -67,17 +67,20 @@
                         }
                     });
                 };
+                handleClick=(e)=>{
+                    console.log('e',e)
+
+                }
 
                 render() {
                     console.log("render", this.state.currentData);
                     const { info } = this.props;
                     return (
-                        <div>
-                            hello , my name is
-                            <button onClick={this.changeChildData}>
-                                child中的button
-                            </button>
-                            <Child childP={info} />
+                        <div onClick={this.handleClick}>
+                            {ReactDOMe.createPortal(
+    <p>这个子节点被放置在 document body 中。</p>,
+    document.body
+  )}
                         </div>
                     );
                 }

@@ -7,17 +7,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    html,body {
+      height: 300px;
+    }
     .box {
-      height: 200px;
-      width: 200px;
+      display: flex;
+      flex-direction: column;
+      width: 800px;
+      height: 100%;
       background: pink;
+    }
+    .top {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      background: red;
+      overflow-y: auto;
+    }
+    .left {
+      /* height: 100%; */
+        background: skyblue;
+        /* flex: 1; */
+        width: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .right {
+      background: gray;
+      /* height: 100%; */
+      flex: 1;
+      
+      background: darkcyan;
+
+    }
+    .bottom {
+      height: 100px;
+      width: 100%;
+      background: yellow;
     }
   </style>
 </head>
 
 <body>
   <div class="box">
-      <input type="range">
+     <div class="top">
+      <div class="left">
+        <p>hello world</p>
+        <!-- <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p>
+        <p>hello world</p> -->
+      </div>
+      <div class="right"></div>
+    
+     
+     </div>
+     <div class="bottom"></div>
 
   </div>
   </script>

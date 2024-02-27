@@ -5,55 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>canvas 获取图像颜色</title>
         <style>
-            body {
-                transition: background ease 0.2s;
-                text-align: center;
-                padding: 0;
-                margin: 0;
+            html {
+                font-size: 48px;
             }
-            #cursor {
-                width: 9px;
-                height: 9px;
-                position: absolute;
+            .box1 {
+                font-size: 24px;
             }
-            #cursor::before,
-            #cursor::after {
-                content: "";
-                position: absolute;
-                background-color: #000;
+            .box2 {
+                font-size: 1rem;
+
             }
-            #cursor::before {
-                left: 4px;
-                top: 0;
-                width: 1px;
-                height: 9px;
-            }
-            #cursor::after {
-                top: 4px;
-                left: 0;
-                width: 9px;
-                height: 1px;
-            }
+        
+
         </style>
     </head>
     <body>
-        <h2>点击图片任意位置</h2>
-        <img id="img" src="./default.jpeg" alt="" />
-        <h3 id="output"></h3>
-        <script>
-            async function loadScript() {
-                const p1 = new Promise((resolve, reject) => {
-                    resolve(1);
-                });
+        body
+       
+        <div class="box1">
+            hello world
+            <div class="box2">
+                hello world
+            </div>
 
-                const p2 = new Promise((resolve, reject) => {
-                    resolve(2);
-                });
-                return await Promise.all([p1, p2]);
-            }
-
-        const res=loadScript()
-        console.log('res',res)
-        </script>
+        </div>
     </body>
+    <script>
+        const box2=document.getElementsByClassName("box2")[0];
+        box2.addEventListener("mousedown",function(e){
+            console.log('e',e)
+        })
+       
+    </script>
 </html>
