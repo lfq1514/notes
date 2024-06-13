@@ -77,7 +77,7 @@
                     const { info } = this.props;
                     return (
                         <div onClick={this.handleClick}>
-                            {ReactDOMe.createPortal(
+                            {ReactDOM.createPortal(
     <p>这个子节点被放置在 document body 中。</p>,
     document.body
   )}
@@ -94,6 +94,11 @@
                 const changeName = (name) => {
                     serInfo({ name: "ls" });
                 };
+                React.useEffect(() => {
+                    console.log("useEffect");
+                });
+                console.log('0-0-0-')
+
 
                 return (
                     <div>
@@ -102,7 +107,7 @@
                                 changeName();
                             }}
                         >
-                            点我更新name
+                            点我更新name {info.name}
                         </button>
                         <Index info={info} name="alien" />
                     </div>
